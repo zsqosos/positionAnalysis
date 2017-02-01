@@ -4,6 +4,7 @@
   "description": "",
   "main": "lagou.js",
   "dependencies": {
+    "async": "^2.1.4",
     "superagent": "^3.4.0"
   },
   "devDependencies": {},
