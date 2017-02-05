@@ -11,8 +11,8 @@
   
 # 说明
 
-  + 爬取的数据都会以`.json`储存在`data`目录下
-  + 程序使用了[superagent](https://github.com/visionmedia/superagent) [async](https://github.com/caolan/async) 类库
+  + 爬取的数据都会以`.json`储存在`data`目录下
+  + 程序使用了[superagent](https://github.com/visionmedia/superagent) [async](https://github.com/caolan/async) 类库
   
 # LICENSE
 
