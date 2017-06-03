@@ -1,0 +1,6 @@
+{
+    "city": ["西安","重庆"],
+    "city2": ["北京","上海","广州","深圳","杭州","南京","成都","西安","武汉","重庆"],
+    "positionKd": ["python",".NET"],
+    "positionKd2": ["前端","java","php","ios","android","c++","python",".NET"]
+}

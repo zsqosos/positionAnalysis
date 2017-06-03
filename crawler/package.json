@@ -2,15 +2,13 @@
   "name": "lagou",
   "version": "1.0.0",
   "description": "",
-  "main": "lagou.js",
+  "main": "index.js",
   "dependencies": {
     "async": "^2.1.4",
     "superagent": "^3.4.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC"
 }
