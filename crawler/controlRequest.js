@@ -2,7 +2,9 @@ const superagent = require('superagent');
 const async = require('async');
 const getData = require('./getData');
 
-function controlRequest(city, position,callback1) {
+
+function controlRequest(city, position, indexCallback) {
+    let ok = 0;
     let page = 1;
     let urls = [];
     // 利用async控制并发数量
@@ -25,7 +27,7 @@ function controlRequest(city, position,callback1) {
                         if (dataObj.success === true) {
                             page = dataObj.content.positionResult.totalCount;
                             cb(null, page);
-                        }else{
+                        } else {
                             console.log('获取数据失败,' + res.text);
                         }
 
@@ -40,13 +42,26 @@ function controlRequest(city, position,callback1) {
                 cb(null, urls);
             },
             // 利用async.mapLimit控制请求，每次最多发送3条请求
-            () => {
-                async.mapLimit(urls, 3, (url,callback) => {
+            (cb) => {
+                async.mapLimit(urls, 3, (url, callback) => {
                     getData.run(url, callback);
                 }, (err, result) => {
                     if (err) throw err;
-                    callback1(null);
+                    if (arguments[2]) {
+                        ok = 1;
+                    }
+                    cb(null, ok)
                 });
+            },
+            () => {
+                if (ok) {
+                    setTimeout(function () {
+                        console.log(`${city}的${position}数据请求完成`);
+                        indexCallback(null);
+                    }, 5000);
+                } else {
+                    console.log(`${city}的${position}数据请求完成`);
+                }
             }
         ], (err, result) => {
             if (err) throw err;

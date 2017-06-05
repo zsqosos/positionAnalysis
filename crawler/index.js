@@ -17,7 +17,7 @@ if (process.argv.length === 4) {
     }
     async.mapSeries(defaultArr, function (argvItem, callback) {
         console.log('开始请求' + argvItem[0] + '的' + argvItem[1] + '职位数据');
-        // requestLagou.controlRequest(argvItem[0], argvItem[1],callback);
+        requestLagou.controlRequest(argvItem[0], argvItem[1],callback);
     }, function (err, result) {
         if (err) throw err;
     });
